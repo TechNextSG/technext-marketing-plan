@@ -10,6 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="css/plan.css"/>
+<style>
+  /* Creative beside its spec: artwork at its natural 4:5, spec takes the rest. */
+  .creative{display:grid;grid-template-columns:300px minmax(0,1fr);gap:15px;margin-top:6px;align-items:start}
+  .creative .acard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .creative .prev{padding:0;border-bottom:1px solid var(--line);background:var(--bg-alt)}
+  .creative .prev img{width:100%;height:auto;display:block}
+  .creative .meta{padding:13px 16px 15px}
+  .creative .nm{font-size:14.2px;font-weight:800;color:var(--ink);margin-bottom:3px}
+  .creative .sp{font-family:'JetBrains Mono',monospace;font-size:11.2px;color:var(--muted);margin-bottom:11px}
+  .creative .btn{width:100%;justify-content:center}
+  .creative .tbl{min-width:0;font-size:13.2px}
+  .creative .tbl td{padding:9px 13px}
+  @media(max-width:760px){ .creative{grid-template-columns:1fr} }
+</style>
 </head>
 <body>
 
@@ -78,9 +92,10 @@
         </div>
         <div class="qs-card">
           <div class="n">4</div>
-          <h4>Sell the demo, not Odoo</h4>
-          <p>Nobody buys an ERP from an ad. The ad's only job is a free 30-minute demo loaded with the
-          prospect's own products and prices. That offer is the entire pitch.</p>
+          <h4>Sell the appointment, not Odoo</h4>
+          <p>Nobody buys an ERP from an ad. The ad's only job is a booked appointment — a free
+          30-minute demo loaded with the prospect's own products and prices. That offer is the
+          entire pitch.</p>
         </div>
       </div>
       <div class="callout blue">
@@ -106,33 +121,77 @@
             <tr><td class="k">Languages</td><td>English, Chinese (Simplified and Traditional)</td><td>Same</td></tr>
             <tr><td class="k">Exclusions</td><td>Customer list · staff · anyone who submitted a lead in 180 days</td><td>Same</td></tr>
             <tr><td class="k">Placements</td><td>Advantage+, minus Audience Network rewarded video and in-stream</td><td>Same</td></tr>
-            <tr><td class="k">Creative</td><td>4:5 at 1080×1350, plus a 1:1 crop. Exclude Stories and Reels unless a 9:16 is built for them.</td><td>Same creative, different copy angle</td></tr>
+            <tr><td class="k">Creative</td><td>The 4:5 artwork below</td><td>Same artwork, different copy angle</td></tr>
           </tbody>
         </table>
       </div>
 
+      <h3 class="sub">The creative</h3>
+      <div class="creative">
+        <div class="acard">
+          <div class="prev"><img src="assets/ad-creative-4x5.jpg" alt="TechNext Odoo ERP ad: Ready to see what Odoo ERP can do for your business?"></div>
+          <div class="meta">
+            <div class="nm">"Ready to See What Odoo ERP Can Do for your Business?"</div>
+            <div class="sp">JPEG · 1080×1350 · 4:5</div>
+            <a class="btn btn-primary" href="assets/ad-creative-4x5.jpg" download="technext-odoo-ad-4x5.jpg">Download</a>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="meta">
+            <div class="nm">Ready to run as-is</div>
+            <table class="tbl">
+              <tbody>
+                <tr><td class="k">Ratio</td><td><b>Exactly 4:5</b> — the source is 1485×1856, so nothing gets cropped in the feed. No re-export needed.</td></tr>
+                <tr><td class="k">Resolution</td><td>Supplied above Meta's 1080×1350 minimum. The download here is the resized upload file.</td></tr>
+                <tr><td class="k">Feed placement</td><td>Good. This is where 4:5 performs best and where the budget should sit.</td></tr>
+                <tr><td class="k">1:1 crop</td><td><b>Rebuild, don't crop.</b> The headline fills the top 40% and the button and contact line the bottom 15% — a square crop loses one end or the other.</td></tr>
+                <tr><td class="k">Stories / Reels</td><td><b>Exclude at launch.</b> The interface covers roughly the top 14% and bottom 20%, which is exactly where the logos and the button sit.</td></tr>
+                <tr><td class="k">Branding</td><td>TechNext logo and the correct <b>Odoo Ready Partner</b> badge both present.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout amber">
+        <span class="ch"><span class="warn-ic">⚠</span> The "Book an Appointment" pill is drawn inside the image.</span>
+        Meta renders its own CTA button directly beneath the artwork, so the ad ships with two buttons —
+        and the painted one does nothing when tapped. Two consequences: set the real CTA button to
+        <b>Book now</b> so the two at least agree, and expect some taps to land on the dead pill.
+        Meta also discourages creatives that imitate platform controls, so if delivery is ever limited
+        this is the first thing to test removing. A version without the pill and without the baked-in
+        contact line is the cleanest paid variant — those details are a flyer habit, and the CTA button
+        and link bar already do that job.
+      </div>
+
       <h3 class="sub">The ad copy</h3>
+      <p style="font-size:14px;margin-bottom:10px">The artwork asks a question and offers an
+      appointment, so the text answers the question and says what the appointment is.</p>
       <div class="bp">
         <button class="cbtn2">Copy</button>
         <h4>Primary text — cold</h4>
-        <p>Quotations in one file. Stock in another. Invoices in a third. Nobody knows the real
-        numbers until someone reconciles them.<br><br>
-        Odoo puts POS, inventory, CRM and accounting into one system — and we configure it around the
-        way your business already runs, not the other way round.<br><br>
-        TechNext is an Odoo Ready Partner. Book a free 30-minute demo and we will load your own
-        products and prices in before the call.</p>
+        <p>Most Odoo demos show you someone else's business. We load your own products and prices in
+        first.<br><br>
+        So in 30 minutes you see your quotations, your stock and your invoices running in one
+        system — POS, inventory, CRM and accounting, configured around the way you already work
+        rather than the other way round.<br><br>
+        TechNext is an Odoo Ready Partner in Singapore. Book an appointment — no licence to buy
+        upfront.</p>
       </div>
       <div class="scroll-x">
         <table class="tbl">
-          <thead><tr><th>Field</th><th>Text</th><th>Limit</th></tr></thead>
+          <thead><tr><th>Field</th><th>Text</th><th>Count</th></tr></thead>
           <tbody>
-            <tr><td class="k">Headline</td><td>Five spreadsheets, one system</td><td>29 / 40</td></tr>
-            <tr><td class="k">Description</td><td>Free 30-minute Odoo demo</td><td>24 / 30</td></tr>
-            <tr><td class="k">Button</td><td>Learn more</td><td>—</td></tr>
-            <tr><td class="k">Retargeting angle</td><td>"You looked at Odoo. Here is what the first 30 days of an implementation actually involves."</td><td>—</td></tr>
+            <tr><td class="k">Headline</td><td>See Odoo run on your own data</td><td>29 / 40</td></tr>
+            <tr><td class="k">Description</td><td>Odoo Ready Partner in SG</td><td>24 / 30</td></tr>
+            <tr><td class="k">Button</td><td><b>Book now</b> <span class="sm">matches the pill in the artwork</span></td><td>—</td></tr>
+            <tr><td class="k">Retargeting primary text</td><td>"You looked at Odoo. The question is never whether it can do the job — it is whether the implementation gets done properly. That is the part we own: scoping, configuration, migrating your existing files, and training the team on the modules they actually touch."</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
+      <p style="margin-top:14px">The first line is <b>96 characters</b>, so the whole hook is visible
+      before Meta's "See more" cut on mobile. It deliberately does not repeat the headline in the
+      artwork — the picture asks, the text answers.</p>
       <div class="callout amber">
         <span class="ch"><span class="warn-ic">⚠</span> Two claims that must stay exactly as written.</span>
         It is <b>"Odoo Ready Partner"</b> — that is the tier Odoo's own directory lists, and "Certified
@@ -243,7 +302,7 @@
             <tr><td class="k">Before launch</td><td>Pixel and Conversions API live, <code>Lead</code> firing on the <code>/lp/</code> confirmation only. Creative exported at 1080×1350 and 1080×1080. Custom audiences built. Naming and UTMs set: <code>TN | Meta | Odoo | Leads-SG | 2026-09</code>. One real test lead submitted end to end.</td></tr>
             <tr><td class="k">Week 1–2</td><td>Live. Do not touch it — the ad set is in learning. Answer every comment publicly; "how much?" questions do real conversion work.</td></tr>
             <tr><td class="k">Week 3–4</td><td>First read on cost per lead. Replace the planning assumptions with actuals and recalculate before changing anything.</td></tr>
-            <tr><td class="k">Week 5–8</td><td>Introduce a second creative against the first. Refresh the retargeting copy — that pool fatigues fastest.</td></tr>
+            <tr><td class="k">Week 5–8</td><td>Run the first A/B test. Two candidates, in order: <b>a Singaporean face</b> in place of the stock portrait, and a version with the painted button and contact line removed. Refresh the retargeting copy too — that pool fatigues fastest.</td></tr>
             <tr><td class="k">Week 9–12</td><td>Judge on signed clients. Two or more: raise to $2,000. One: hold. Zero: stop spending and fix the demo, not the ad.</td></tr>
           </tbody>
         </table>
